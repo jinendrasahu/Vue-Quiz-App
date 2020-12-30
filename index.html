@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./index.css">
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    
+<div id="txt">
+    <h3>{{message}}</h3>
+    <input v-model="message"><br><br>
+
+    <!-- v-bind -->
+    <input v-model="email" :class="{red:email.length<3}">
+    <button onclick="alert('this is binnd example')" v-bind:disabled="email.length<3">This is Vue Bind bro</button><br><br>
+
+    <!-- v-text -->
+    <h3 v-text="name"></h3>
+    <!-- v-once it update once and never changes -->
+    <h3 v-once>{{name}}</h3>
+    <h3>{{name}}</h3>
+    
+    <!-- v-html  it will change html text-->
+     <h3 v-html="name"></h3>
+    <!-- v-class togg1111111111111
+        le -->
+     <input v-model="name" :class="[name.length<3 ? 'red':'green']">
+    <button onclick="alert('this is binnd example')" :disabled="name.length<3">This is Vue Bind bro</button>
+    
+      <!-- v-on -->
+      <input v-model="newFruit">
+      <input v-model="newFruit" v-on:keyup="addFruit">
+      <input v-model="newFruit" v-on:keyup.enter="addFruit">
+  
+      <button v-on:click="addFruit">+ Add</button>
+    
+      
+     <!-- v-for -->
+     <!-- filter -->
+     <ul>
+         <li v-for="fruit in fruits">{{fruit | capitalize}}</li>
+     </ul>
+     <ul>
+        <li v-for="fruit in flist">{{fruit.name}}</li>
+    </ul>
+  
+    <!-- component -->
+    <!-- <phone-list/> -->
+  
+    <!-- <note-list :flist="fruits"/> -->
+</div>
+
+<div id="tf">
+    <!-- v-if -->
+    <h3 v-if="count===0">First if</h3>
+    <h3 v-else-if="count===1">second Else</h3>
+    <h3 v-else>Last Else</h3>
+
+   <!-- v-show -->
+    <h3 v-show="isShow">This is Vue Show bro</h3>
+
+    </div>
+    
+    
+    <script src="index.js"></script>
+</body>
+</html>
